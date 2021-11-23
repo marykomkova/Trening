@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class BaseTest {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeTest
     public void setupTest() {
@@ -24,12 +24,5 @@ public class BaseTest {
         if (driver != null) {
             driver.quit();
         }
-    }
-
-    @Test
-    public void test() {
-        String url = "https://www.youtube.com/";
-        driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 }
