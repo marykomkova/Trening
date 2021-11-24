@@ -1,5 +1,8 @@
-package com.mary;
+package com.mary.shop21vek;
 
+import com.mary.BaseTest;
+import com.mary.shop21vek.BasketPage;
+import com.mary.shop21vek.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

@@ -1,4 +1,4 @@
-package com.mary;
+package com.mary.shop21vek;
 
 import com.mary.constant.TimeConstants;
 import org.openqa.selenium.By;
@@ -15,7 +15,7 @@ public abstract class BasePage {
 
     protected WebDriver driver;
 
-    BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         driver.manage().timeouts().implicitlyWait(TimeConstants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
         driver.manage().window().maximize();

@@ -1,4 +1,4 @@
-package com.mary;
+package com.mary.shop21vek;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

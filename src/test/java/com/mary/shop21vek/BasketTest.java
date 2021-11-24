@@ -1,14 +1,12 @@
-package com.mary;
+package com.mary.shop21vek;
 
-import org.openqa.selenium.By;
+import com.mary.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class BasketTest extends BaseTest {
-
-
 
     @Test
     public void test() {
