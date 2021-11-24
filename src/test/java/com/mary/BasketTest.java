@@ -1,10 +1,14 @@
 package com.mary;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
-
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class BasketTest extends BaseTest {
+
+
 
     @Test
     public void test() {
@@ -14,7 +18,10 @@ public class BasketTest extends BaseTest {
         mainPage.searchGood();
         GoodPage goodPage = new GoodPage(driver);
         Assert.assertTrue(goodPage.isOpened());
-        //goodPage.addInBasket();
-        System.out.println(goodPage.addInBasket());
+        String expectedName = goodPage.addInBasket();
+        goodPage.openBasket();
+        BasketPage basketPage = new BasketPage(driver);
+        List<String> basketItemsNames = basketPage.getBasketItemsNames();
+        Assert.assertEquals(expectedName, basketItemsNames.get(0));
     }
 }
