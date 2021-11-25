@@ -1,4 +1,4 @@
-package com.mary.shop21vek;
+package com.mary.google;
 
 import com.mary.constant.TimeConstants;
 import org.openqa.selenium.*;

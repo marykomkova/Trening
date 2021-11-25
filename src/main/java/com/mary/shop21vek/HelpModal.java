@@ -1,7 +1,9 @@
 package com.mary.shop21vek;
 
+import com.mary.constant.TimeConstants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HelpModal extends BasePage {
 
@@ -13,7 +15,7 @@ public class HelpModal extends BasePage {
 
     @Override
     public boolean isOpened() {
-        return waitUntilElementPresence(closeButton);
+        return waitUntil(TimeConstants.PAGE_LOAD_TIMEOUT, ExpectedConditions.presenceOfAllElementsLocatedBy(closeButton));
     }
 
     public void closeModal() {

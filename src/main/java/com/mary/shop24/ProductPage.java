@@ -5,13 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class TVPage extends BasePage {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class ProductPage extends BasePage {
 
     private By titleLabel = new By.ByXPath("//h1[@class='page-main__title']");
     private By addInBasketButton = new By.ByXPath("(//button[@class='new-button new-button_border'])[1]");
     private By goToBasketButton = new By.ByXPath("(//button[@class='new-button new-button_border'])[2]");
 
-    public TVPage(WebDriver driver) {
+    public ProductPage(WebDriver driver) {
         super(driver);
     }
 
@@ -20,9 +23,17 @@ public class TVPage extends BasePage {
         return driver.findElement(titleLabel).isDisplayed();
     }
 
-    public String addTVInBasket() {
+    public void addProductInBasket() {
         driver.findElement(addInBasketButton).click();
-        return driver.findElement(titleLabel).getText();
+    }
+
+    public String getNameOfSelectedProduct() {
+        String expectedNameOfProduct = driver.findElement(titleLabel).getText();
+//        Pattern p = Pattern.compile("Код: \\d+");
+//        Matcher ex = p.matcher(expectedNameOfProduct);
+//        ex.find();
+        return expectedNameOfProduct.replaceAll("Код: \\d+", "");
+        //return expectedNameOfProduct.replace(expectedNameOfProduct.substring(ex.start(), ex.end()), "");
     }
 
     public BasketPage goToBasket() {

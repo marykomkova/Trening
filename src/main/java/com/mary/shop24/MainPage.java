@@ -24,10 +24,10 @@ public class MainPage extends BasePage {
         driver.get("https://24shop.by/");
     }
 
-    public TVsPage searchTV() {
+    public ProductsPage searchProduct(String product) {
         WebElement search = driver.findElement(searchBox);
         search.click();
-        search.sendKeys("Телевизор" + Keys.ENTER);
-        return new TVsPage(driver);
+        search.sendKeys(product + Keys.ENTER);
+        return new ProductsPage(driver);
     }
 }
