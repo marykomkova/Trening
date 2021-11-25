@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class BasketPage extends BasePage {
 
     private By titleLabel = new By.ByXPath("//h1[@class='page-main__title']");
+    private By actualNameOfTV = new By.ByCssSelector("h4 > a");
 
     public BasketPage(WebDriver driver) {
         super(driver);
@@ -14,5 +15,9 @@ public class BasketPage extends BasePage {
     @Override
     public boolean isOpened() {
         return driver.findElement(titleLabel).isDisplayed();
+    }
+
+    public String findActualNameOfTV() {
+        return driver.findElement(actualNameOfTV).getText();
     }
 }

@@ -14,6 +14,8 @@ public class MainPage extends BasePage {
     private By title = new By.ByCssSelector("a.logotypeImg");
     private By basket = new By.ByCssSelector("a.headerCartBox");
     private By search = new By.ByXPath("//input[@id='j-search']");
+    private By accountButton = new By.ByXPath("//button[@class='styles_userToolsToggler__imcSl']");
+    private By loginButton = new By.ByXPath("//button[@class='userToolsBtn']");
 
     @Override
     public boolean isOpened() {
@@ -33,6 +35,12 @@ public class MainPage extends BasePage {
         searchBox.click();
         searchBox.sendKeys("Планетарный миксер" + Keys.ENTER);
         return new GoodPage(driver);
+    }
+
+    public LoginPage goToAuthentificationForm() {
+        driver.findElement(accountButton).click();
+        driver.findElement(loginButton).click();
+        return new LoginPage(driver);
     }
 
 }
