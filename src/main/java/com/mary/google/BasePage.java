@@ -31,4 +31,19 @@ public abstract class BasePage {
         }
         return true;
     }
+
+    public void openNewWindow(String url) {
+        ((JavascriptExecutor) driver).executeScript("window.open()");
+        switchWindow();
+        driver.get(url);
+    }
+
+    public void switchWindow() {
+        for (String windowName: driver.getWindowHandles()) {
+            if (!driver.getWindowHandle().equals(windowName)) {
+                driver.switchTo().window(windowName);
+                break;
+            }
+        }
+    }
 }
